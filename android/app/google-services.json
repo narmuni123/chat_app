@@ -1,0 +1,92 @@
+{
+  "project_info": {
+    "project_number": "998202911678",
+    "project_id": "chatapp-647ec",
+    "storage_bucket": "chatapp-647ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998202911678:android:37ee0c87518222d6c367ef",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998202911678-km6k15sdfpesjous366nvg8cjdnaf553.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5iuYWW3XU78AnH2KFu3Wz96PWjVxwG70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998202911678-km6k15sdfpesjous366nvg8cjdnaf553.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998202911678:android:cf8d5aa154d6951dc367ef",
+        "android_client_info": {
+          "package_name": "com.munikiran.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998202911678-6hapdhlp3d2eu3koaminet240omdfc18.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.munikiran.chat_app",
+            "certificate_hash": "1fc7e5f986211548b1d6c377e9e8a98a70409dd4"
+          }
+        },
+        {
+          "client_id": "998202911678-li2fccfbng3bfl59usiuum0spe5sqcgs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.munikiran.chat_app",
+            "certificate_hash": "810d67c66106644027cd99eb9baf74bcd99ecc2c"
+          }
+        },
+        {
+          "client_id": "998202911678-nl41ma51bpppov7rjef9clq13u7vd1m8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.munikiran.chat_app",
+            "certificate_hash": "35da3ee1692ae6b92230997006ae175023ed9a5a"
+          }
+        },
+        {
+          "client_id": "998202911678-km6k15sdfpesjous366nvg8cjdnaf553.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5iuYWW3XU78AnH2KFu3Wz96PWjVxwG70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998202911678-km6k15sdfpesjous366nvg8cjdnaf553.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
