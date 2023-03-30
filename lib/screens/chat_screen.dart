@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -8,32 +7,39 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          FirebaseFirestore.instance
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            FirebaseFirestore.instance
+                .collection("chats/NutjHjwVS1N05L03eT4u/messages")
+                .add({
+              'text': 'This was added by clicking the button',
+            });
+          },
+        ),
+        body: StreamBuilder(
+          stream: FirebaseFirestore.instance
               .collection("chats/NutjHjwVS1N05L03eT4u/messages")
-              .snapshots()
-              .listen((data) {
-            for (var element in data.docs) {
-              if (kDebugMode) {
-                print(element['text']);
-              }
+              .snapshots(),
+          builder: (ctx, AsyncSnapshot<dynamic> streamSnapshot) {
+            if (streamSnapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
-          });
-        },
-      ),
-      body: ListView.builder(
-        itemCount: 10,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (_, int index) {
-          return Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text("This works"),
-          );
-        },
-      ),
-    );
+            final documents = streamSnapshot.data.docs;
+            return ListView.builder(
+              itemCount: documents.length,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (_, int index) {
+                return Container(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(documents[index]['text']),
+                );
+              },
+            );
+          },
+        ));
   }
 }
