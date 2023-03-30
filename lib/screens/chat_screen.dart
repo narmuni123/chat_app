@@ -21,14 +21,15 @@ class ChatScreen extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }
+            final documents = streamSnapshot.data.docs;
             return ListView.builder(
-              itemCount: streamSnapshot.data.docs.length,
+              itemCount: documents.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (_, int index) {
                 return Container(
                   padding: const EdgeInsets.all(8),
-                  child: const Text("This works"),
+                  child: Text(documents[index]['text']),
                 );
               },
             );
