@@ -15,8 +15,8 @@ class _AuthFormState extends State<AuthForm> {
   TextEditingController _passwordController = TextEditingController();
 
   _trySubmit() {
-    final isValid = _formKey.currentState.validate();
-
+    final isValid = _formKey.currentState!.validate();
+    FocusScope.of(context).unfocus();
     if (isValid) {
       _formKey.currentState.save();
     }
