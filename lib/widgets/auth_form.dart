@@ -21,8 +21,8 @@ class _AuthFormState extends State<AuthForm> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextFormField(
-                    validator: (value){
-                      if(value!.isEmpty || !value.contains('@')){
+                    validator: (value) {
+                      if (value!.isEmpty || !value.contains('@')) {
                         return "Please enter a valid address";
                       }
                       return null;
@@ -33,11 +33,23 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                   ),
                   TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty || value.length < 4) {
+                        return "Please enter at least 4 characters.";
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       labelText: 'Username',
                     ),
                   ),
                   TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty || value.length < 7) {
+                        return "Password must be at least 7 characters long";
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       labelText: 'Password',
                     ),
