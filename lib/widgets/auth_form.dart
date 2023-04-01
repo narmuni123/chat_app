@@ -8,6 +8,20 @@ class AuthForm extends StatefulWidget {
 }
 
 class _AuthFormState extends State<AuthForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _userNameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  _trySubmit() {
+    final isValid = _formKey.currentState.validate();
+
+    if (isValid) {
+      _formKey.currentState.save();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -17,10 +31,12 @@ class _AuthFormState extends State<AuthForm> {
           child: Padding(
             padding: EdgeInsets.all(16),
             child: Form(
+              key: _formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextFormField(
+                    controller: _emailController,
                     validator: (value) {
                       if (value!.isEmpty || !value.contains('@')) {
                         return "Please enter a valid address";
@@ -33,6 +49,7 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                   ),
                   TextFormField(
+                    controller: _userNameController,
                     validator: (value) {
                       if (value!.isEmpty || value.length < 4) {
                         return "Please enter at least 4 characters.";
@@ -44,6 +61,7 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                   ),
                   TextFormField(
+                    controller: _passwordController,
                     validator: (value) {
                       if (value!.isEmpty || value.length < 7) {
                         return "Password must be at least 7 characters long";
