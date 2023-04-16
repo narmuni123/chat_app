@@ -8,6 +8,7 @@ class NewMessage extends StatefulWidget {
 }
 
 class _NewMessageState extends State<NewMessage> {
+  var _enteredMessage = "";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,11 +21,16 @@ class _NewMessageState extends State<NewMessage> {
               decoration: const InputDecoration(
                 labelText: "Send a message .....",
               ),
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+                  _enteredMessage = value;
+                });
+              },
             ),
           ),
           IconButton(
-            onPressed: () {},
+            color: Theme.of(context).primaryColor,
+            onPressed: _enteredMessage.trim().isEmpty ? null : () {},
             icon: const Icon(
               Icons.send,
             ),
