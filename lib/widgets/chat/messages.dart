@@ -37,6 +37,7 @@ class Messages extends StatelessWidget {
                   chatDocs[index]['userId'] == snapshot.data!.uid
                       ? true
                       : false,
+                    chatDocs[index]['username'],
                   key: ValueKey(chatDocs[index].id),
                 );
               },
