@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:chat_app/widgets/pickers/user_image_picker.dart';
@@ -12,6 +11,7 @@ class AuthForm extends StatefulWidget {
     String email,
     String userName,
     String password,
+    File? imageFile,
     bool isLogin,
     BuildContext ctx,
   ) submitFn;
@@ -37,7 +37,7 @@ class _AuthFormState extends State<AuthForm> {
   _trySubmit(context) {
     final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
-    if (_userImageFile != null && !_isLogin) {
+    if (_userImageFile == null && !_isLogin) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: const Text("Please pick an image!"),
@@ -51,7 +51,8 @@ class _AuthFormState extends State<AuthForm> {
       widget.submitFn(
         _email.trim(),
         _userName.trim(),
-        _password,
+        _password.trim(),
+        _userImageFile,
         _isLogin,
         context,
       );

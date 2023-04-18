@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
-  const MessageBubble(this.message, this.isMe, this.username,
+   MessageBubble(this.message, this.isMe, this.username,
       {required this.key});
 
   final bool isMe;
