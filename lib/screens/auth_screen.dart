@@ -52,16 +52,15 @@ class _AuthScreenState extends State<AuthScreen> {
 
       final url = await ref.getDownloadURL();
 
-      uploadTask.whenComplete(() async {
-        await FirebaseFirestore.instance
-            .collection('users')
-            .doc(authResult.user!.uid)
-            .set({
-          'username': userName,
-          'email': email,
-          'image_url': url,
-        });
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(authResult.user!.uid)
+          .set({
+        'username': userName,
+        'email': email,
+        'image_url': url,
       });
+
       setState(() {
         _isLoading = false;
       });
